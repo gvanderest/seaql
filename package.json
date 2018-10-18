@@ -1,0 +1,33 @@
+{
+    "name": "seaql",
+    "version": "1.0.0",
+    "description": "SQL Building Library",
+    "main": "src/SeaQL.ts",
+    "scripts": {
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gvanderest/seaql.git"
+    },
+    "keywords": [
+        "seaql",
+        "sql",
+        "builder",
+        "query"
+    ],
+    "author": "Guillaume VanderEst <gvanderest@gmail.com>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/gvanderest/seaql/issues"
+    },
+    "homepage": "https://github.com/gvanderest/seaql#readme",
+    "devDependencies": {
+        "@types/jest": "^23.3.5"
+    },
+    "dependencies": {
+        "jest": "^23.6.0",
+        "ts-jest": "^23.10.4",
+        "typescript": "^3.1.3"
+    }
+}

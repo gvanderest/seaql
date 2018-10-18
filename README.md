@@ -21,7 +21,7 @@ const sql = insert({ firstName: "Guillaume", lastName: "VanderEst" }).into("cust
 ```js
 import { select } from "seaql";
 
-const sql = select(["id"]).from("customers").where({ firstName: "Guillaume", lastName: "VanderEst" });
+const sql = select(["id"]).from("customers").where({ firstName: "Guillaume", lastName: "VanderEst" }).stringify();
 
 # SELECT id FROM customers WHERE firstName = 'Guillaume' AND lastName = 'VanderEst';
 ```
@@ -31,7 +31,7 @@ const sql = select(["id"]).from("customers").where({ firstName: "Guillaume", las
 ```js
 import { update } from "seaql";
 
-const sql = update("customers").set({ firstName: "Edward", lastName: "Nigma" }).where({ id: 12345 });
+const sql = update("customers").set({ firstName: "Edward", lastName: "Nigma" }).where({ id: 12345 }).stringify();
 
 # UPDATE customers SET firstName = 'Edward', lastName = 'Nigma' WHERE id = 12345;
 ```
@@ -43,7 +43,7 @@ Alternatively, `del` can be used.  As `delete` is a reserved JavaScript keyword.
 ```js
 import { remove } from "seaql";
 
-const sql = remove("customers").where({ id: 12345 });
+const sql = remove("customers").where({ id: 12345 }).stringify();
 
 # DELETE customers WHERE id = 12345;
 ```

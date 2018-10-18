@@ -1,4 +1,4 @@
-import { select } from "../SeaQL";
+import { select } from "../Query";
 
 describe("select", () => {
     it("generates simple select queries", () => {

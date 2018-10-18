@@ -1,4 +1,4 @@
-import { insert } from "../SeaQL";
+import { insert } from "../Query";
 
 describe("insert", () => {
     it("generates simple insert queries", () => {

@@ -1,4 +1,4 @@
-import { update } from "../SeaQL";
+import { update } from "../Query";
 
 describe("update", () => {
     it("generates simple update queries", () => {

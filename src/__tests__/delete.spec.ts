@@ -1,4 +1,4 @@
-import { remove } from "../SeaQL";
+import { remove } from "../Query";
 
 describe("delete", () => {
     it("generates simple delete queries", () => {

@@ -4,6 +4,10 @@ Library for generating some SQL, primarily targeting MySQL and Postgres database
 
 ## Installation
 
+```shell
+yarn add seaql
+```
+
 ## Examples
 
 ### Insert

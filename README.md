@@ -55,6 +55,7 @@ const sql = remove("customers").where({ id: 12345 }).stringify();
 
 ## Future
 * Value escaping
+* Validations for when some functions can be called
 * Handling primitives vs arrays flexibly
 * Table+Field combinations
 * Field aliasing
@@ -69,3 +70,4 @@ const sql = remove("customers").where({ id: 12345 }).stringify();
 * Partitioning?
 * Engine-specific optimizations
 * Returning clauses
+* Select with no fields provided performing *

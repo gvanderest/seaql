@@ -1,22 +1,21 @@
-import SeaQL from "../SeaQL";
+import { select } from "../SeaQL";
 
 describe("select", () => {
     it("generates simple select queries", () => {
 
-        const generatedSql = SeaQL
-            .select([
+        const generatedSql = select([
                 "id", "firstName", "lastName",
             ])
             .from("customers")
             .where({
                 id: 12345,
             })
-            .toSql();
+            .stringify();
 
         const expectedSql = [
             "SELECT id, firstName, lastName",
             "FROM customers",
-            "WHERE id = 12345",
+            "WHERE id = 12345;",
         ].join(" ");
 
         expect(generatedSql).toBe(expectedSql);

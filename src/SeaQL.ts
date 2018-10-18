@@ -37,11 +37,15 @@ export default class SeaQL {
         });
     }
 
-    static delete(table) {
+    static remove(table) {
         return new SeaQL({
             action: "delete",
             table,
         });
+    }
+
+    static del(table) {
+        return SeaQL.remove(table);
     }
 
     static update(table) {
@@ -78,7 +82,7 @@ export default class SeaQL {
         });
     }
 
-    public toSql() {
+    public stringify() {
         switch (this.action) {
             case "insert": {
                 return this.formatInsertSql();
@@ -110,7 +114,7 @@ export default class SeaQL {
 
         parts.push(`SELECT ${this.fields.join(", ")}`);
         parts.push(`FROM ${this.table}`);
-        parts.push(`WHERE ${this.generateWhereClauseSql(this.whereClauses)}`);
+        parts.push(`WHERE ${this.generateWhereClauseSql(this.whereClauses)};`);
 
         return parts.join(" ");
     }
@@ -124,7 +128,7 @@ export default class SeaQL {
         });
 
         parts.push(`INSERT INTO ${this.table} (${fields.join(", ")})`);
-        parts.push(`VALUES (${values.join(", ")})`);
+        parts.push(`VALUES (${values.join(", ")});`);
 
         return parts.join(" ");
     }
@@ -133,7 +137,7 @@ export default class SeaQL {
         const parts: string[] = [];
 
         parts.push(`DELETE FROM ${this.table}`);
-        parts.push(`WHERE ${this.generateWhereClauseSql(this.whereClauses)}`);
+        parts.push(`WHERE ${this.generateWhereClauseSql(this.whereClauses)};`);
 
         return parts.join(" ");
     }
@@ -148,7 +152,7 @@ export default class SeaQL {
 
         parts.push(`UPDATE ${this.table}`);
         parts.push(`SET ${updatesSql}`);
-        parts.push(`WHERE ${this.generateWhereClauseSql(this.whereClauses)}`);
+        parts.push(`WHERE ${this.generateWhereClauseSql(this.whereClauses)};`);
 
         return parts.join(" ");
     }
@@ -162,3 +166,9 @@ export default class SeaQL {
         }
     }
 }
+
+export const insert = SeaQL.insert;
+export const select = SeaQL.select;
+export const update = SeaQL.update;
+export const remove = SeaQL.remove;
+export const del = SeaQL.del;

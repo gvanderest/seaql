@@ -1,10 +1,9 @@
-import SeaQL from "../SeaQL";
+import { update } from "../SeaQL";
 
 describe("update", () => {
     it("generates simple update queries", () => {
 
-        const generatedSql = SeaQL
-            .update("customers")
+        const generatedSql = update("customers")
             .set({
                 firstName: "Edward",
                 lastName: "Nigma",
@@ -12,12 +11,12 @@ describe("update", () => {
             .where({
                 id: 12345,
             })
-            .toSql();
+            .stringify();
 
         const expectedSql = [
             "UPDATE customers",
             "SET firstName = 'Edward', lastName = 'Nigma'",
-            "WHERE id = 12345",
+            "WHERE id = 12345;",
         ].join(" ");
 
         expect(generatedSql).toBe(expectedSql);

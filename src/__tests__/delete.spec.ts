@@ -1,18 +1,17 @@
-import SeaQL from "../SeaQL";
+import { remove } from "../SeaQL";
 
 describe("delete", () => {
     it("generates simple delete queries", () => {
 
-        const generatedSql = SeaQL
-            .delete("customers")
+        const generatedSql = remove("customers")
             .where({
                 id: 12345,
             })
-            .toSql();
+            .stringify();
 
         const expectedSql = [
             "DELETE FROM customers",
-            "WHERE id = 12345",
+            "WHERE id = 12345;",
         ].join(" ");
 
         expect(generatedSql).toBe(expectedSql);

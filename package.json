@@ -2,7 +2,7 @@
     "name": "seaql",
     "version": "1.0.0",
     "description": "SQL Building Library",
-    "main": "src/SeaQL.ts",
+    "main": "src/Query.ts",
     "scripts": {
         "test": "jest"
     },
